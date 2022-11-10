@@ -11,14 +11,14 @@ resource "aws_s3_bucket" "this" {
   }
 }
 
-resource "aws_s3_bucket_website_configuration" "example" {
-  bucket = aws_s3_bucket.this.bucket
+# resource "aws_s3_bucket_website_configuration" "this" {
+#   bucket = aws_s3_bucket.this.bucket
 
-  index_document {
-    suffix = "index.html"
-  }
+#   index_document {
+#     suffix = "index.html"
+#   }
 
-  error_document {
-    key = "error.html"
-  }
-}
+#   error_document {
+#     key = "error.html"
+#   }
+# }
