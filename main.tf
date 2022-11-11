@@ -1,6 +1,5 @@
 terraform {
   cloud {
-    organization = "prototyp"
     workspaces {
       name = "aws-s3-hosting"
     }
