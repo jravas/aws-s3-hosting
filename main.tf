@@ -1,24 +1,30 @@
+terraform {
+  cloud {
+    organization = "your-organization-name"
+    workspaces {
+      name = "aws-s3-hosting"
+    }
+  }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+
+  required_version = ">= 0.14.0"
+}
+
+
 provider "aws" {
-  region = var.region
+  region = "eu-central-1"
 }
 
 resource "aws_s3_bucket" "this" {
   bucket = "aws-s3-hosting"
 
   tags = {
-    Name        = "AWS S3 Hosting"
-    Environment = "Dev"
+    Name = "AWS S3 Hosting"
   }
 }
-
-# resource "aws_s3_bucket_website_configuration" "this" {
-#   bucket = aws_s3_bucket.this.bucket
-
-#   index_document {
-#     suffix = "index.html"
-#   }
-
-#   error_document {
-#     key = "error.html"
-#   }
-# }
